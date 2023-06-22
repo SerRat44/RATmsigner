@@ -76,100 +76,100 @@ This interface represents an item provider.
 **IOrdItem (Interface)** <br>
 This interface represents an Ord item.
 
-id (string): The unique identifier of the item.
-contentURI (string): The URI where the content of the item can be found.
-contentType (string): The type of the content (e.g., image, video, etc.).
-contentPreviewURI (string): The URI where a preview of the content can be found.
-sat (number): The price of the item in satoshis.
-satName (string): The name of the satoshi unit used.
-genesisTransaction (string): The transaction where the item was first created.
-genesisTransactionBlocktime (string, optional): The block time of the genesis transaction.
-genesisTransactionBlockHash (string, optional): The block hash of the genesis transaction.
-inscriptionNumber (number): The number of the inscription on the item.
-meta (IOrdItemMeta, optional): The metadata of the item.
-chain (string): The blockchain where the item exists.
-owner (string): The owner of the item.
-location (string): The location of the item on the blockchain.
-locationBlockHeight (number, optional): The block height of the item's location.
-locationBlocktime (string, optional): The block time of the item's location.
-locationBlockHash (string, optional): The block hash of the item's location.
-outputValue (number): The output value of the item.
-output (string): The output of the item.
-mempoolTxId (string, optional): The transaction ID of the item in the mempool.
-listed (boolean): Whether the item is listed for sale or not.
-listedAt (string, optional): The time when the item was listed.
-listedPrice (number, optional): The price of the item when it was listed.
-listedMakerFeeBp (number, optional): The maker fee in basis points when the item was listed.
-listedSellerReceiveAddress (string, optional): The address where the seller will receive the payment.
+- id (string): The unique identifier of the item.
+- contentURI (string): The URI where the content of the item can be found.
+- contentType (string): The type of the content (e.g., image, video, etc.).
+- contentPreviewURI (string): The URI where a preview of the content can be found.
+- sat (number): The price of the item in satoshis.
+- satName (string): The name of the satoshi unit used.
+- genesisTransaction (string): The transaction where the item was first created.
+- genesisTransactionBlocktime (string, optional): The block time of the genesis transaction.
+- genesisTransactionBlockHash (string, optional): The block hash of the genesis transaction.
+- inscriptionNumber (number): The number of the inscription on the item.
+- meta (IOrdItemMeta, optional): The metadata of the item.
+- chain (string): The blockchain where the item exists.
+- owner (string): The owner of the item.
+- location (string): The location of the item on the blockchain.
+- locationBlockHeight (number, optional): The block height of the item's location.
+- locationBlocktime (string, optional): The block time of the item's location.
+- locationBlockHash (string, optional): The block hash of the item's location.
+- outputValue (number): The output value of the item.
+- output (string): The output of the item.
+- mempoolTxId (string, optional): The transaction ID of the item in the mempool.
+- listed (boolean): Whether the item is listed for sale or not.
+- listedAt (string, optional): The time when the item was listed.
+- listedPrice (number, optional): The price of the item when it was listed.
+- listedMakerFeeBp (number, optional): The maker fee in basis points when the item was listed.
+- listedSellerReceiveAddress (string, optional): The address where the seller will receive the payment.
 
 **IOrdItemMeta (Interface)** <br>
 This interface represents the metadata of an Ord item.
 
-name (string): The name of the item.
-high_res_img_url (string, optional): The high resolution image URL of the item.
-status (string, optional): The status of the item.
-rank (number, optional): The rank of the item.
-attributes (IOrdItemAttribute[], optional): The attributes of the item.
+- name (string): The name of the item.
+- high_res_img_url (string, optional): The high resolution image URL of the item.
+- status (string, optional): The status of the item.
+- rank (number, optional): The rank of the item.
+- attributes (IOrdItemAttribute[], optional): The attributes of the item.
 
 **IOrdItemAttribute (Interface)** <br>
 This interface represents an attribute of an Ord item.
 
-trait_type (string): The type of the trait.
-value (string): The value of the trait.
-status (string, optional): The status of the trait.
-percent (string, optional): The percentage of the trait.
+- trait_type (string): The type of the trait.
+- value (string): The value of the trait.
+- status (string, optional): The status of the trait.
+- percent (string, optional): The percentage of the trait.
 
 **IOrdAPIPostPSBTBuying (Interface)** <br>
 This interface represents a request to post a PSBT buying.
 
-price (number): The price of the item.
-tokenId (string): The token ID of the item.
-buyerAddress (string): The address of the buyer.
-buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
-signedBuyingPSBTBase64 (string): The signed buying PSBT in base64 format.
+- price (number): The price of the item.
+- tokenId (string): The token ID of the item.
+- buyerAddress (string): The address of the buyer.
+- buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
+- signedBuyingPSBTBase64 (string): The signed buying PSBT in base64 format.
 
 **IOrdAPIPostPSBTListing (Interface)** <br>
 This interface represents a request to post a PSBT listing.
 
-price (number): The price of the item.
-tokenId (string): The token ID of the item.
-sellerReceiveAddress (string): The address where the seller will receive the payment.
-signedListingPSBTBase64 (string): The signed listing PSBT in base64 format.
-tapInternalKey (string, optional): The tap internal key.
+- price (number): The price of the item.
+- tokenId (string): The token ID of the item.
+- sellerReceiveAddress (string): The address where the seller will receive the payment.
+- signedListingPSBTBase64 (string): The signed listing PSBT in base64 format.
+- tapInternalKey (string, optional): The tap internal key.
 
 **IListingState (Interface)** <br>
 This interface represents the state of a listing.
 
-seller (Object): Contains information about the seller.
-makerFeeBp (number): The maker fee in basis points.
-sellerOrdAddress (string): The address of the seller.
-price (number): The price of the item.
-ordItem (IOrdItem): The item being sold.
-sellerReceiveAddress (string): The address where the seller will receive the payment.
-unsignedListingPSBTBase64 (string, optional): The unsigned listing PSBT in base64 format.
-signedListingPSBTBase64 (string, optional): The signed listing PSBT in base64 format.
-tapInternalKey (string, optional): The tap internal key.
-buyer (Object, optional): Contains information about the buyer.
-takerFeeBp (number): The taker fee in basis points.
-buyerAddress (string): The address of the buyer.
-buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
-feeRateTier (string): The fee rate tier.
-buyerPublicKey (string, optional): The public key of the buyer.
-unsignedBuyingPSBTBase64 (string, optional): The unsigned buying PSBT in base64 format.
-unsignedBuyingPSBTInputSize (number, optional): The input size of the unsigned buying PSBT.
-signedBuyingPSBTBase64 (string, optional): The signed buying PSBT in base64 format.
-buyerDummyUTXOs (utxo[], optional): The dummy UTXOs of the buyer.
-buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
-mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
+- seller (Object): Contains information about the seller.
+- makerFeeBp (number): The maker fee in basis points.
+- sellerOrdAddress (string): The address of the seller.
+- price (number): The price of the item.
+- ordItem (IOrdItem): The item being sold.
+- sellerReceiveAddress (string): The address where the seller will receive the payment.
+- unsignedListingPSBTBase64 (string, optional): The unsigned listing PSBT in base64 format.
+- signedListingPSBTBase64 (string, optional): The signed listing PSBT in base64 format.
+- tapInternalKey (string, optional): The tap internal key.
+- buyer (Object, optional): Contains information about the buyer.
+- takerFeeBp (number): The taker fee in basis points.
+- buyerAddress (string): The address of the buyer.
+- buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
+- feeRateTier (string): The fee rate tier.
+- buyerPublicKey (string, optional): The public key of the buyer.
+- unsignedBuyingPSBTBase64 (string, optional): The unsigned buying PSBT in base64 format.
+- unsignedBuyingPSBTInputSize (number, optional): The input size of the unsigned buying PSBT.
+- signedBuyingPSBTBase64 (string, optional): The signed buying PSBT in base64 format.
+- buyerDummyUTXOs (utxo[], optional): The dummy UTXOs of the buyer.
+- buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
+- mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
 
 **utxo (Interface)** <br>
 This interface represents a UTXO (Unspent Transaction Output).
 
-txid (string): The transaction ID of the UTXO.
-vout (number): The output index of the UTXO.
-value (number): The value of the UTXO.
-status (TxStatus): The status of the UTXO.
-tx (bitcoin.Transaction): The transaction of the UTXO.
+- txid (string): The transaction ID of the UTXO.
+- vout (number): The output index of the UTXO.
+- value (number): The value of the UTXO.
+- status (TxStatus): The status of the UTXO.
+- tx (bitcoin.Transaction): The transaction of the UTXO.
 
 ## Methods
 
