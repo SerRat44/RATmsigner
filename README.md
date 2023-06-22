@@ -45,3 +45,78 @@ To develop msigner, simply clone the repository and follow these steps:
 
 ## License
 Apache 2.0
+
+
+
+
+From signer.ts
+SellerSigner
+generateUnsignedListingPSBTBase64(listing: IListingState): Promise<IListingState>
+This function is used to generate an unsigned PSBT (Partially Signed Bitcoin Transaction) for a listing. It takes in a listing object of type IListingState and returns a Promise that resolves to an updated listing object with the unsigned PSBT.
+
+verifySignedListingPSBTBase64(req: IOrdAPIPostPSBTListing, feeProvider: FeeProvider, itemProvider: ItemProvider): Promise<void>
+This function is used to verify a signed PSBT for a listing. It takes in a req object of type IOrdAPIPostPSBTListing, a feeProvider of type FeeProvider, and an itemProvider of type ItemProvider. It returns a Promise that resolves to void. If the PSBT is invalid, it will throw an error.
+
+BuyerSigner
+selectDummyUTXOs(utxos: AddressTxsUtxo[], itemProvider: ItemProvider): Promise<utxo[] | null>
+This function is used to select dummy UTXOs (Unspent Transaction Outputs) from a list of UTXOs. It takes in an array of utxos of type AddressTxsUtxo[] and an itemProvider of type ItemProvider. It returns a Promise that resolves to an array of selected UTXOs of type utxo[] or null if no UTXOs could be selected.
+
+selectPaymentUTXOs(utxos: AddressTxsUtxo[], amount: number, vinsLength: number, voutsLength: number, feeRateTier: string, itemProvider: ItemProvider)
+This function is used to select payment UTXOs from a list of UTXOs. It takes in an array of utxos of type AddressTxsUtxo[], an amount of type number representing the total expected output, vinsLength and voutsLength of type number representing the number of input and output transactions respectively, a feeRateTier of type string representing the fee rate tier, and an itemProvider of type ItemProvider. It returns a Promise that resolves to an array of selected UTXOs of type utxo[].
+
+doesUtxoContainInscription(utxo: AddressTxsUtxo, itemProvider: ItemProvider): Promise<boolean>
+This function is used to check if a UTXO contains an inscription. It takes in a utxo of type AddressTxsUtxo and an itemProvider of type ItemProvider. It returns a Promise that resolves to a boolean indicating whether the UTXO contains an inscription.
+
+getSellerInputAndOutput(listing: IListingState)
+This function is used to get the seller's input and output for a listing. It takes in a listing object of type IListingState and returns a Promise that resolves to an object containing the seller's input and output.
+
+From interfaces.ts
+This file exports a number of interfaces that are used to type the objects and parameters in the signer.ts functions. These interfaces provide a blueprint for the shape of the objects, specifying the types of their properties.
+
+The exported interfaces
+
+Used Chat with Code
+The interfaces.ts file exports several interfaces that are used to type the objects and parameters in the signer.ts functions. Here are the exported interfaces:
+
+InvalidArgumentError
+This is a class that extends the built-in Error class in JavaScript. It's used to throw an error when an invalid argument is passed to a function.
+
+WitnessUtxo
+This interface represents a Witness UTXO (Unspent Transaction Output). It has two properties:
+
+script: A Buffer representing the script of the UTXO.
+value: A number representing the value of the UTXO.
+FeeProvider
+This interface represents a fee provider. It has two methods:
+
+getMakerFeeBp(maker: string): Returns a Promise that resolves to a number representing the maker fee in basis points.
+getTakerFeeBp(taker: string): Returns a Promise that resolves to a number representing the taker fee in basis points.
+ItemProvider
+This interface represents an item provider. It has two methods:
+
+getTokenByOutput(output: string): Returns a Promise that resolves to an IOrdItem or null.
+getTokenById(tokenId: string): Returns a Promise that resolves to an IOrdItem or null.
+IOrdItem
+This interface represents an Ord item. It has several properties, including id, contentURI, contentType, contentPreviewURI, sat, satName, genesisTransaction, genesisTransactionBlocktime, genesisTransactionBlockHash, inscriptionNumber, meta, chain, owner, location, locationBlockHeight, locationBlocktime, locationBlockHash, outputValue, output, mempoolTxId, listed, listedAt, listedPrice, listedMakerFeeBp, and listedSellerReceiveAddress.
+
+IOrdItemMeta
+This interface represents the metadata of an Ord item. It has several properties, including name, high_res_img_url, status, rank, and attributes.
+
+IOrdItemAttribute
+This interface represents an attribute of an Ord item. It has several properties, including trait_type, value, status, and percent.
+
+IOrdAPIPostPSBTBuying
+This interface represents a request to post a PSBT buying. It has several properties, including price, tokenId, buyerAddress, buyerTokenReceiveAddress, and signedBuyingPSBTBase64.
+
+IListingState
+This interface represents the state of a listing. It has two properties:
+
+seller: An object with several properties, including makerFeeBp, sellerOrdAddress, price, ordItem, sellerReceiveAddress, unsignedListingPSBTBase64, signedListingPSBTBase64, and tapInternalKey.
+buyer: An object with several properties, including takerFeeBp, buyerAddress, buyerTokenReceiveAddress, feeRateTier, buyerPublicKey, unsignedBuyingPSBTBase64, unsignedBuyingPSBTInputSize, signedBuyingPSBTBase64, buyerDummyUTXOs, buyerPaymentUTXOs, and mergedSignedBuyingPSBTBase64.
+utxo
+This interface represents a UTXO. It has several properties, including txid, vout, value, status, and tx.
+
+
+
+
+
