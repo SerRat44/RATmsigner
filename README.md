@@ -50,9 +50,6 @@ Apache 2.0
 
 ## Interfaces
 
-**InvalidArgumentError (Class)**  
-This class extends the built-in Error class in JavaScript. It's used to throw an error when an invalid argument is passed to a function.
-
 **WitnessUtxo (Interface)**  
 This interface represents a Witness UTXO (Unspent Transaction Output).
 
