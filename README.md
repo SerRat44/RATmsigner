@@ -56,35 +56,35 @@ This class extends the built-in Error class in JavaScript. It's used to throw an
 **WitnessUtxo (Interface)**  
 This interface represents a Witness UTXO (Unspent Transaction Output).
 
-- script (Buffer): Represents the script of the UTXO.
-- value (number): Represents the value of the UTXO.
+- **script (Buffer)**: Represents the script of the UTXO.
+- **value (number)**: Represents the value of the UTXO.
 
 **FeeProvider (Interface)**  
 This interface represents a fee provider.
 
-- getMakerFeeBp(maker: string) (Method): Returns a Promise that resolves to a number representing the maker fee in basis points.
-- getTakerFeeBp(taker: string) (Method): Returns a Promise that resolves to a number representing the taker fee in basis points.
+- **getMakerFeeBp(maker: string) (Method)**: Returns a Promise that resolves to a number representing the maker fee in basis points.
+- **getTakerFeeBp(taker: string) (Method)**: Returns a Promise that resolves to a number representing the taker fee in basis points.
 
 **ItemProvider (Interface)**  
 This interface represents an item provider.
 
-- getTokenByOutput(output: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
-- getTokenById(tokenId: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
+- **getTokenByOutput(output: string) (Method)**: Returns a Promise that resolves to an IOrdItem or null.
+- **getTokenById(tokenId: string) (Method)**: Returns a Promise that resolves to an IOrdItem or null.
 
 **IOrdItem (Interface)**  
 This interface represents an Ord item.
 
 Fixed  
-- id (string): The unique identifier of the item.
-- contentURI (string): The URI where the content of the item can be found.
-- contentType (string): The type of the content (e.g., image, video, etc.).
-- contentPreviewURI (string): The URI where a preview of the content can be found.
-- sat (number): The price of the item in satoshis.
-- satName (string): The name of the satoshi unit used.
-- genesisTransaction (string): The transaction where the item was first created.
-- genesisTransactionBlocktime (string, optional): The block time of the genesis transaction.
-- genesisTransactionBlockHash (string, optional): The block hash of the genesis transaction.
-- inscriptionNumber (number): The number of the inscription on the item.
+- **id (string)**: The unique identifier of the item.
+- **contentURI (string)**: The URI where the content of the item can be found.
+- **contentType (string)**: The type of the content (e.g., image, video, etc.).
+- **contentPreviewURI (string)**: The URI where a preview of the content can be found.
+- **sat (number)**: The price of the item in satoshis.
+- **satName (string)**: The name of the satoshi unit used.
+- **genesisTransaction (string)**: The transaction where the item was first created.
+- **genesisTransactionBlocktime (string, optional)**: The block time of the genesis transaction.
+- **genesisTransactionBlockHash (string, optional)**: The block hash of the genesis transaction.
+- **inscriptionNumber (number)**: The number of the inscription on the item.
 - meta (IOrdItemMeta, optional): The metadata of the item.
 - chain (string): The blockchain where the item exists.
 - owner (string): The owner of the item.
