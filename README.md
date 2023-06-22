@@ -85,95 +85,95 @@ Fixed
 - **genesisTransactionBlocktime (string, optional)**: The block time of the genesis transaction.
 - **genesisTransactionBlockHash (string, optional)**: The block hash of the genesis transaction.
 - **inscriptionNumber (number)**: The number of the inscription on the item.
-- meta (IOrdItemMeta, optional): The metadata of the item.
-- chain (string): The blockchain where the item exists.
-- owner (string): The owner of the item.
+- **meta (IOrdItemMeta, optional)**: The metadata of the item.
+- **chain (string)**: The blockchain where the item exists.
+- **owner (string)**: The owner of the item.
 
 Dynamic  
-- location (string): The location of the item on the blockchain.
-- locationBlockHeight (number, optional): The block height of the item's location.
-- locationBlocktime (string, optional): The block time of the item's location.
-- locationBlockHash (string, optional): The block hash of the item's location.
-- outputValue (number): The output value of the item.
-- output (string): The output of the item.
-- mempoolTxId (string, optional): The transaction ID of the item in the mempool.
+- **location (string)**: The location of the item on the blockchain.
+- **locationBlockHeight (number, optional)**: The block height of the item's location.
+- **locationBlocktime (string, optional)**: The block time of the item's location.
+- **locationBlockHash (string, optional)**: The block hash of the item's location.
+- **outputValue (number)**: The output value of the item.
+- **output (string)**: The output of the item.
+- **mempoolTxId (string, optional)**: The transaction ID of the item in the mempool.
 
 Listing  
-- listed (boolean): Whether the item is listed for sale or not.
-- listedAt (string, optional): The time when the item was listed.
-- listedPrice (number, optional): The price of the item when it was listed.
-- listedMakerFeeBp (number, optional): The maker fee in basis points when the item was listed.
-- listedSellerReceiveAddress (string, optional): The address where the seller will receive the payment.
+- **listed (boolean)**: Whether the item is listed for sale or not.
+- **listedAt (string, optional)**: The time when the item was listed.
+- **listedPrice (number, optional)**: The price of the item when it was listed.
+- **listedMakerFeeBp (number, optional)**: The maker fee in basis points when the item was listed.
+- **listedSellerReceiveAddress (string, optional)**: The address where the seller will receive the payment.
 
 **IOrdItemMeta (Interface)**  
 This interface represents the metadata of an Ord item.
 
-- name (string): The name of the item.
-- high_res_img_url (string, optional): The high resolution image URL of the item.
-- status (string, optional): The status of the item.
-- rank (number, optional): The rank of the item.
-- attributes (IOrdItemAttribute[], optional): The attributes of the item.
+- **name (string)**: The name of the item.
+- **high_res_img_url (string, optional)**: The high resolution image URL of the item.
+- **status (string, optional)**: The status of the item.
+- **rank (number, optional)**: The rank of the item.
+- **attributes (IOrdItemAttribute[], optional)**: The attributes of the item.
 
 **IOrdItemAttribute (Interface)**  
 This interface represents an attribute of an Ord item.
 
-- trait_type (string): The type of the trait.
-- value (string): The value of the trait.
-- status (string, optional): The status of the trait.
-- percent (string, optional): The percentage of the trait.
+- **trait_type (string)**: The type of the trait.
+- **value (string)**: The value of the trait.
+- **status (string, optional)**: The status of the trait.
+- **percent (string, optional)**: The percentage of the trait.
 
 **IOrdAPIPostPSBTBuying (Interface)**  
 This interface represents a request to post a PSBT buying.
 
-- price (number): The price of the item.
-- tokenId (string): The token ID of the item.
-- buyerAddress (string): The address of the buyer.
-- buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
-- signedBuyingPSBTBase64 (string): The signed buying PSBT in base64 format.
+- **price (number)**: The price of the item.
+- **tokenId (string)**: The token ID of the item.
+- **buyerAddress (string)**: The address of the buyer.
+- **buyerTokenReceiveAddress (string)**: The address where the buyer will receive the token.
+- **signedBuyingPSBTBase64 (string)**: The signed buying PSBT in base64 format.
 
 **IOrdAPIPostPSBTListing (Interface)**  
 This interface represents a request to post a PSBT listing.
 
-- price (number): The price of the item.
-- tokenId (string): The token ID of the item.
-- sellerReceiveAddress (string): The address where the seller will receive the payment.
-- signedListingPSBTBase64 (string): The signed listing PSBT in base64 format.
-- tapInternalKey (string, optional): The tap internal key.
+- **price (number)**: The price of the item.
+- **tokenId (string)**: The token ID of the item.
+- **sellerReceiveAddress (string)**: The address where the seller will receive the payment.
+- **signedListingPSBTBase64 (string)**: The signed listing PSBT in base64 format.
+- **tapInternalKey (string, optional)**: The tap internal key.
 
 **IListingState (Interface)**  
 This interface represents the state of a listing.
 
 - seller (Object): Contains information about the seller.
-    - makerFeeBp (number): The maker fee in basis points.
-    - sellerOrdAddress (string): The address of the seller.
-    - price (number): The price of the item.
-    - ordItem (IOrdItem): The item being sold.
-    - sellerReceiveAddress (string): The address where the seller will receive the payment.
-    - unsignedListingPSBTBase64 (string, optional): The unsigned listing PSBT in base64 format.
-    - signedListingPSBTBase64 (string, optional): The signed listing PSBT in base64 format.
-    - tapInternalKey (string, optional): The tap internal key.
+    - **makerFeeBp (number)**: The maker fee in basis points.
+    - **sellerOrdAddress (string)**: The address of the seller.
+    - **price (number)**: The price of the item.
+    - **ordItem (IOrdItem)**: The item being sold.
+    - **sellerReceiveAddress (string)**: The address where the seller will receive the payment.
+    - **unsignedListingPSBTBase64 (string, optional)**: The unsigned listing PSBT in base64 format.
+    - **signedListingPSBTBase64 (string, optional)**: The signed listing PSBT in base64 format.
+    - **tapInternalKey (string, optional)**: The tap internal key.
 
 - buyer (Object, optional): Contains information about the buyer.
-    - takerFeeBp (number): The taker fee in basis points.
-    - buyerAddress (string): The address of the buyer.
-    - buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
-    - feeRateTier (string): The fee rate tier.
-    - buyerPublicKey (string, optional): The public key of the buyer.
-    - unsignedBuyingPSBTBase64 (string, optional): The unsigned buying PSBT in base64 format.
-    - unsignedBuyingPSBTInputSize (number, optional): The input size of the unsigned buying PSBT.
-    - signedBuyingPSBTBase64 (string, optional): The signed buying PSBT in base64 format.
-    - buyerDummyUTXOs (utxo[], optional): The dummy UTXOs of the buyer.
-    - buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
-    - mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
+    - **takerFeeBp (number)**: The taker fee in basis points.
+    - **buyerAddress (string)**: The address of the buyer.
+    - **buyerTokenReceiveAddress (string)**: The address where the buyer will receive the token.
+    - **feeRateTier (string)**: The fee rate tier.
+    - **buyerPublicKey (string, optional)**: The public key of the buyer.
+    - **unsignedBuyingPSBTBase64 (string, optional)**: The unsigned buying PSBT in base64 format.
+    - **unsignedBuyingPSBTInputSize (number, optional)**: The input size of the unsigned buying PSBT.
+    - **signedBuyingPSBTBase64 (string, optional)**: The signed buying PSBT in base64 format.
+    - **buyerDummyUTXOs (utxo[], optional)**: The dummy UTXOs of the buyer.
+    - **buyerPaymentUTXOs (utxo[], optional)**: The payment UTXOs of the buyer.
+    - **mergedSignedBuyingPSBTBase64 (string, optional)**: The merged and signed buying PSBT in base64 format.
 
 **utxo (Interface)**  
 This interface represents a UTXO (Unspent Transaction Output).
 
-- txid (string): The transaction ID of the UTXO.
-- vout (number): The output index of the UTXO.
-- value (number): The value of the UTXO.
-- status (TxStatus): The status of the UTXO.
-- tx (bitcoin.Transaction): The transaction of the UTXO.
+- **txid (string)**: The transaction ID of the UTXO.
+- **vout (number)**: The output index of the UTXO.
+- **value (number)**: The value of the UTXO.
+- **status (TxStatus)**: The status of the UTXO.
+- **tx (bitcoin.Transaction)**: The transaction of the UTXO.
 
 ## Methods
 
@@ -187,7 +187,7 @@ This interface represents a UTXO (Unspent Transaction Output).
 
 This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
 
-- listing: An instance of the IListingState interface. This represents the state of a listing.
+- **listing**: An instance of the IListingState interface. This represents the state of a listing.
 
 The function returns a Promise that resolves to an instance of the IListingState interface. The returned instance includes the unsigned PSBT in base64 format.
 
@@ -201,9 +201,9 @@ The function returns a Promise that resolves to an instance of the IListingState
 
 This asynchronous function verifies a signed PSBT in base64 format. It takes in the following parameters:
 
-- req: An instance of the IOrdAPIPostPSBTListing interface. This represents a request to post a PSBT listing.
-- feeProvider: An instance of the FeeProvider interface. This is used to get the maker and taker fees.
-- itemProvider: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
+- **req**: An instance of the IOrdAPIPostPSBTListing interface. This represents a request to post a PSBT listing.
+- **feeProvider**: An instance of the FeeProvider interface. This is used to get the maker and taker fees.
+- **itemProvider**: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
 
 The function returns a Promise that resolves to void. If the verification fails, the function throws an InvalidArgumentError.
 
@@ -218,9 +218,10 @@ The function returns a Promise that resolves to void. If the verification fails,
 
 This asynchronous function selects dummy UTXOs (Unspent Transaction Outputs) from a given list of UTXOs. It takes in the following parameters:
 
-- utxos: An array of AddressTxsUtxo objects. These represent the UTXOs to select from.
-- itemProvider: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
-- The function returns a Promise that resolves to an array of utxo objects or null. The returned array includes the selected dummy UTXOs.
+- **utxos**: An array of AddressTxsUtxo objects. These represent the UTXOs to select from.
+- **itemProvider**: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
+
+The function returns a Promise that resolves to an array of utxo objects or null. The returned array includes the selected dummy UTXOs.
 
 **selectPaymentUTXOs**
 
@@ -235,12 +236,12 @@ This asynchronous function selects dummy UTXOs (Unspent Transaction Outputs) fro
 
 This asynchronous function selects payment UTXOs from a given list of UTXOs. It takes in the following parameters:
 
-- utxos: An array of AddressTxsUtxo objects. These represent the UTXOs to select from.
-- amount: A number representing the expected total output (excluding transaction fee).
-- vinsLength: A number representing the length of the vins.
-- voutsLength: A number representing the length of the vouts.
-- feeRateTier: A string representing the fee rate tier.
-- itemProvider: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
+- **utxos**: An array of AddressTxsUtxo objects. These represent the UTXOs to select from.
+- **amount**: A number representing the expected total output (excluding transaction fee).
+- **vinsLength**: A number representing the length of the vins.
+- **voutsLength**: A number representing the length of the vouts.
+- **feeRateTier**: A string representing the fee rate tier.
+- **itemProvider**: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
 
 The function returns a Promise that resolves to an array of utxo objects. The returned array includes the selected payment UTXOs. If the selected amount is less than the required amount, the function throws an InvalidArgumentError.
 
@@ -252,8 +253,9 @@ The function returns a Promise that resolves to an array of utxo objects. The re
 
 This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
 
-- listing: An instance of the IListingState interface. This represents the state of a listing.
-- The function returns a Promise that resolves to an instance of the IListingState interface. The returned instance includes the unsigned PSBT in base64 format.
+- **listing**: An instance of the IListingState interface. This represents the state of a listing.
+
+The function returns a Promise that resolves to an instance of the IListingState interface. The returned instance includes the unsigned PSBT in base64 format.
 
 **mergeSignedBuyingPSBTBase64**
 
@@ -264,8 +266,8 @@ This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin 
 
 This function merges a signed listing PSBT and a signed buying PSBT, both in base64 format. It takes in the following parameters:
 
-- signedListingPSBTBase64: A string representing the signed listing PSBT in base64 format.
-- signedBuyingPSBTBase64: A string representing the signed buying PSBT in base64 format.
+- **signedListingPSBTBase64**: A string representing the signed listing PSBT in base64 format.
+- **signedBuyingPSBTBase64**: A string representing the signed buying PSBT in base64 format.
 
 The function returns a string representing the merged PSBT in base64 format.
 
@@ -281,9 +283,9 @@ The function returns a string representing the merged PSBT in base64 format.
 
 This asynchronous function verifies a signed buying PSBT in base64 format. It takes in the following parameters:
 
-- req: An instance of the IOrdAPIPostPSBTBuying interface. This represents the request to post a PSBT for buying.
-- feeProvider: An instance of the FeeProvider interface. This provides the fee details.
-- itemProvider: An instance of the ItemProvider interface. This provides the item details.
+- **req**: An instance of the IOrdAPIPostPSBTBuying interface. This represents the request to post a PSBT for buying.
+- **feeProvider**: An instance of the FeeProvider interface. This provides the fee details.
+- **itemProvider**: An instance of the ItemProvider interface. This provides the item details.
 
 The function returns a Promise that resolves to an object containing a newOutputOffset property, which is a number.
 
@@ -299,10 +301,10 @@ The function returns a Promise that resolves to an object containing a newOutput
 
 This asynchronous function generates an unsigned PSBT in base64 format for creating a dummy UTXO. It takes in the following parameters:
 
-- address: A string representing the address.
-- buyerPublicKey: A string representing the buyer's public key. This can be undefined.
-- unqualifiedUtxos: An array of AddressTxsUtxo instances. These represent the unqualified UTXOs.
-- feeRateTier: A string representing the fee rate tier.
-- itemProvider: An instance of the ItemProvider interface. This provides the item details.
+- **address**: A string representing the address.
+- **buyerPublicKey**: A string representing the buyer's public key. This can be undefined.
+- **unqualifiedUtxos**: An array of AddressTxsUtxo instances. These represent the unqualified UTXOs.
+- **feeRateTier**: A string representing the fee rate tier.
+- **itemProvider**: An instance of the ItemProvider interface. This provides the item details.
 
 The function returns a Promise that resolves to a string representing the unsigned PSBT in base64 format for creating a dummy UTXO.
