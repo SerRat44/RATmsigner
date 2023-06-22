@@ -58,23 +58,20 @@ This class extends the built-in Error class in JavaScript. It's used to throw an
 **WitnessUtxo (Interface)** <br>
 This interface represents a Witness UTXO (Unspent Transaction Output).
 
-script (Buffer): Represents the script of the UTXO.
-
-value (number): Represents the value of the UTXO.
+- script (Buffer): Represents the script of the UTXO.
+- value (number): Represents the value of the UTXO.
 
 **FeeProvider (Interface)** <br>
 This interface represents a fee provider.
 
-getMakerFeeBp(maker: string) (Method): Returns a Promise that resolves to a number representing the maker fee in basis points.
-
-getTakerFeeBp(taker: string) (Method): Returns a Promise that resolves to a number representing the taker fee in basis points.
+- getMakerFeeBp(maker: string) (Method): Returns a Promise that resolves to a number representing the maker fee in basis points.
+- getTakerFeeBp(taker: string) (Method): Returns a Promise that resolves to a number representing the taker fee in basis points.
 
 **ItemProvider (Interface)** <br>
 This interface represents an item provider.
 
-getTokenByOutput(output: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
-
-getTokenById(tokenId: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
+- getTokenByOutput(output: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
+- getTokenById(tokenId: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
 
 **IOrdItem (Interface)** <br>
 This interface represents an Ord item.
