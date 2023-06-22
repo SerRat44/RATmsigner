@@ -46,9 +46,7 @@ To develop msigner, simply clone the repository and follow these steps:
 ## License
 Apache 2.0
 
-
 # Docs for stupid mfs
-
 
 ## Interfaces
 
