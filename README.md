@@ -46,7 +46,7 @@ To develop msigner, simply clone the repository and follow these steps:
 ## License
 Apache 2.0
 
-# Docs for stupid mfs
+# Rat's docs for stupid mfs
 
 ## Interfaces
 
@@ -177,5 +177,132 @@ This interface represents a UTXO (Unspent Transaction Output).
 
 ## Methods
 
+### SellerSigner
 
+**generateUnsignedListingPSBTBase64**
 
+async function generateUnsignedListingPSBTBase64(
+    listing: IListingState,
+): Promise<IListingState>
+
+This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
+
+- listing: An instance of the IListingState interface. This represents the state of a listing.
+
+The function returns a Promise that resolves to an instance of the IListingState interface. The returned instance includes the unsigned PSBT in base64 format.
+
+**verifySignedListingPSBTBase64**
+
+async function verifySignedListingPSBTBase64(
+    req: IOrdAPIPostPSBTListing,
+    feeProvider: FeeProvider,
+    itemProvider: ItemProvider,
+): Promise<void>
+
+This asynchronous function verifies a signed PSBT in base64 format. It takes in the following parameters:
+
+- req: An instance of the IOrdAPIPostPSBTListing interface. This represents a request to post a PSBT listing.
+- feeProvider: An instance of the FeeProvider interface. This is used to get the maker and taker fees.
+- itemProvider: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
+
+The function returns a Promise that resolves to void. If the verification fails, the function throws an InvalidArgumentError.
+
+### BuyerSigner
+
+**selectDummyUTXOs**
+
+async function selectDummyUTXOs(
+    utxos: AddressTxsUtxo[],
+    itemProvider: ItemProvider,
+): Promise<utxo[] | null>
+
+This asynchronous function selects dummy UTXOs (Unspent Transaction Outputs) from a given list of UTXOs. It takes in the following parameters:
+
+- utxos: An array of AddressTxsUtxo objects. These represent the UTXOs to select from.
+- itemProvider: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
+- The function returns a Promise that resolves to an array of utxo objects or null. The returned array includes the selected dummy UTXOs.
+
+**selectPaymentUTXOs**
+
+async function selectPaymentUTXOs(
+    utxos: AddressTxsUtxo[],
+    amount: number, // amount is expected total output (except tx fee)
+    vinsLength: number,
+    voutsLength: number,
+    feeRateTier: string,
+    itemProvider: ItemProvider,
+)
+
+This asynchronous function selects payment UTXOs from a given list of UTXOs. It takes in the following parameters:
+
+- utxos: An array of AddressTxsUtxo objects. These represent the UTXOs to select from.
+- amount: A number representing the expected total output (excluding transaction fee).
+- vinsLength: A number representing the length of the vins.
+- voutsLength: A number representing the length of the vouts.
+- feeRateTier: A string representing the fee rate tier.
+- itemProvider: An instance of the ItemProvider interface. This is used to get the item by output or by ID.
+
+The function returns a Promise that resolves to an array of utxo objects. The returned array includes the selected payment UTXOs. If the selected amount is less than the required amount, the function throws an InvalidArgumentError.
+
+**generateUnsignedBuyingPSBTBase64**
+
+async function generateUnsignedBuyingPSBTBase64(
+    listing: IListingState,
+): Promise<IListingState>
+
+This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
+
+- listing: An instance of the IListingState interface. This represents the state of a listing.
+- The function returns a Promise that resolves to an instance of the IListingState interface. The returned instance includes the unsigned PSBT in base64 format.
+
+**mergeSignedBuyingPSBTBase64**
+
+function mergeSignedBuyingPSBTBase64(
+    signedListingPSBTBase64: string,
+    signedBuyingPSBTBase64: string,
+): string
+
+This function merges a signed listing PSBT and a signed buying PSBT, both in base64 format. It takes in the following parameters:
+
+- signedListingPSBTBase64: A string representing the signed listing PSBT in base64 format.
+- signedBuyingPSBTBase64: A string representing the signed buying PSBT in base64 format.
+
+The function returns a string representing the merged PSBT in base64 format.
+
+**verifySignedBuyingPSBTBase64**
+
+async function verifySignedBuyingPSBTBase64(
+    req: IOrdAPIPostPSBTBuying,
+    feeProvider: FeeProvider,
+    itemProvider: ItemProvider,
+): Promise<{
+    newOutputOffset: number;
+}>
+
+This asynchronous function verifies a signed buying PSBT in base64 format. It takes in the following parameters:
+
+- req: An instance of the IOrdAPIPostPSBTBuying interface. This represents the request to post a PSBT for buying.
+- feeProvider: An instance of the FeeProvider interface. This provides the fee details.
+- itemProvider: An instance of the ItemProvider interface. This provides the item details.
+
+The function returns a Promise that resolves to an object containing a newOutputOffset property, which is a number.
+
+**generateUnsignedCreateDummyUtxoPSBTBase64**
+
+async function generateUnsignedCreateDummyUtxoPSBTBase64(
+    address: string,
+    buyerPublicKey: string | undefined,
+    unqualifiedUtxos: AddressTxsUtxo[],
+    feeRateTier: string,
+    itemProvider: ItemProvider,
+): Promise<string>
+
+This asynchronous function generates an unsigned PSBT in base64 format for creating a dummy UTXO. It takes in the following parameters:
+
+- address: A string representing the address.
+- buyerPublicKey: A string representing the buyer's public key. This can be undefined.
+- unqualifiedUtxos: An array of AddressTxsUtxo instances. These represent the unqualified UTXOs.
+- feeRateTier: A string representing the fee rate tier.
+- itemProvider: An instance of the ItemProvider interface. This provides the item details.
+
+The function returns a Promise that resolves to a string representing the unsigned PSBT in base64 format for creating a dummy UTXO.
