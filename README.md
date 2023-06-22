@@ -50,31 +50,31 @@ Apache 2.0
 
 ## Interfaces
 
-**InvalidArgumentError (Class)** <br>
+**InvalidArgumentError (Class)** 
 This class extends the built-in Error class in JavaScript. It's used to throw an error when an invalid argument is passed to a function.
 
-**WitnessUtxo (Interface)** <br>
+**WitnessUtxo (Interface)** 
 This interface represents a Witness UTXO (Unspent Transaction Output).
 
 - script (Buffer): Represents the script of the UTXO.
 - value (number): Represents the value of the UTXO.
 
-**FeeProvider (Interface)** <br>
+**FeeProvider (Interface)** 
 This interface represents a fee provider.
 
 - getMakerFeeBp(maker: string) (Method): Returns a Promise that resolves to a number representing the maker fee in basis points.
 - getTakerFeeBp(taker: string) (Method): Returns a Promise that resolves to a number representing the taker fee in basis points.
 
-**ItemProvider (Interface)** <br>
+**ItemProvider (Interface)** 
 This interface represents an item provider.
 
 - getTokenByOutput(output: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
 - getTokenById(tokenId: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
 
-**IOrdItem (Interface)** <br>
+**IOrdItem (Interface)** 
 This interface represents an Ord item.
 
-Fixed
+Fixed 
 - id (string): The unique identifier of the item.
 - contentURI (string): The URI where the content of the item can be found.
 - contentType (string): The type of the content (e.g., image, video, etc.).
@@ -89,7 +89,7 @@ Fixed
 - chain (string): The blockchain where the item exists.
 - owner (string): The owner of the item.
 
-Dynamic
+Dynamic 
 - location (string): The location of the item on the blockchain.
 - locationBlockHeight (number, optional): The block height of the item's location.
 - locationBlocktime (string, optional): The block time of the item's location.
@@ -98,14 +98,14 @@ Dynamic
 - output (string): The output of the item.
 - mempoolTxId (string, optional): The transaction ID of the item in the mempool.
 
-Listing
+Listing 
 - listed (boolean): Whether the item is listed for sale or not.
 - listedAt (string, optional): The time when the item was listed.
 - listedPrice (number, optional): The price of the item when it was listed.
 - listedMakerFeeBp (number, optional): The maker fee in basis points when the item was listed.
 - listedSellerReceiveAddress (string, optional): The address where the seller will receive the payment.
 
-**IOrdItemMeta (Interface)** <br>
+**IOrdItemMeta (Interface)** 
 This interface represents the metadata of an Ord item.
 
 - name (string): The name of the item.
@@ -114,7 +114,7 @@ This interface represents the metadata of an Ord item.
 - rank (number, optional): The rank of the item.
 - attributes (IOrdItemAttribute[], optional): The attributes of the item.
 
-**IOrdItemAttribute (Interface)** <br>
+**IOrdItemAttribute (Interface)** 
 This interface represents an attribute of an Ord item.
 
 - trait_type (string): The type of the trait.
@@ -122,7 +122,7 @@ This interface represents an attribute of an Ord item.
 - status (string, optional): The status of the trait.
 - percent (string, optional): The percentage of the trait.
 
-**IOrdAPIPostPSBTBuying (Interface)** <br>
+**IOrdAPIPostPSBTBuying (Interface)** 
 This interface represents a request to post a PSBT buying.
 
 - price (number): The price of the item.
@@ -131,7 +131,7 @@ This interface represents a request to post a PSBT buying.
 - buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
 - signedBuyingPSBTBase64 (string): The signed buying PSBT in base64 format.
 
-**IOrdAPIPostPSBTListing (Interface)** <br>
+**IOrdAPIPostPSBTListing (Interface)** 
 This interface represents a request to post a PSBT listing.
 
 - price (number): The price of the item.
@@ -140,7 +140,7 @@ This interface represents a request to post a PSBT listing.
 - signedListingPSBTBase64 (string): The signed listing PSBT in base64 format.
 - tapInternalKey (string, optional): The tap internal key.
 
-**IListingState (Interface)** <br>
+**IListingState (Interface)** 
 This interface represents the state of a listing.
 
 - seller (Object): Contains information about the seller.
@@ -166,7 +166,7 @@ This interface represents the state of a listing.
     - buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
     - mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
 
-**utxo (Interface)** <br>
+**utxo (Interface)** 
 This interface represents a UTXO (Unspent Transaction Output).
 
 - txid (string): The transaction ID of the UTXO.
@@ -181,9 +181,9 @@ This interface represents a UTXO (Unspent Transaction Output).
 
 **generateUnsignedListingPSBTBase64**
 
-`async function generateUnsignedListingPSBTBase64(
-    listing: IListingState,
-): Promise<IListingState>`
+> async function generateUnsignedListingPSBTBase64(
+>     listing: IListingState,
+> ): Promise<IListingState>
 
 This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
 
