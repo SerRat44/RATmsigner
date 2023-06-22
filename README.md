@@ -76,6 +76,7 @@ This interface represents an item provider.
 **IOrdItem (Interface)** <br>
 This interface represents an Ord item.
 
+Fixed
 - id (string): The unique identifier of the item.
 - contentURI (string): The URI where the content of the item can be found.
 - contentType (string): The type of the content (e.g., image, video, etc.).
@@ -89,6 +90,8 @@ This interface represents an Ord item.
 - meta (IOrdItemMeta, optional): The metadata of the item.
 - chain (string): The blockchain where the item exists.
 - owner (string): The owner of the item.
+
+Dynamic
 - location (string): The location of the item on the blockchain.
 - locationBlockHeight (number, optional): The block height of the item's location.
 - locationBlocktime (string, optional): The block time of the item's location.
@@ -96,6 +99,8 @@ This interface represents an Ord item.
 - outputValue (number): The output value of the item.
 - output (string): The output of the item.
 - mempoolTxId (string, optional): The transaction ID of the item in the mempool.
+
+Listing
 - listed (boolean): Whether the item is listed for sale or not.
 - listedAt (string, optional): The time when the item was listed.
 - listedPrice (number, optional): The price of the item when it was listed.
@@ -141,26 +146,27 @@ This interface represents a request to post a PSBT listing.
 This interface represents the state of a listing.
 
 - seller (Object): Contains information about the seller.
-- makerFeeBp (number): The maker fee in basis points.
-- sellerOrdAddress (string): The address of the seller.
-- price (number): The price of the item.
-- ordItem (IOrdItem): The item being sold.
-- sellerReceiveAddress (string): The address where the seller will receive the payment.
-- unsignedListingPSBTBase64 (string, optional): The unsigned listing PSBT in base64 format.
-- signedListingPSBTBase64 (string, optional): The signed listing PSBT in base64 format.
-- tapInternalKey (string, optional): The tap internal key.
+    - makerFeeBp (number): The maker fee in basis points.
+    - sellerOrdAddress (string): The address of the seller.
+    - price (number): The price of the item.
+    - ordItem (IOrdItem): The item being sold.
+    - sellerReceiveAddress (string): The address where the seller will receive the payment.
+    - unsignedListingPSBTBase64 (string, optional): The unsigned listing PSBT in base64 format.
+    - signedListingPSBTBase64 (string, optional): The signed listing PSBT in base64 format.
+    - tapInternalKey (string, optional): The tap internal key.
+
 - buyer (Object, optional): Contains information about the buyer.
-- takerFeeBp (number): The taker fee in basis points.
-- buyerAddress (string): The address of the buyer.
-- buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
-- feeRateTier (string): The fee rate tier.
-- buyerPublicKey (string, optional): The public key of the buyer.
-- unsignedBuyingPSBTBase64 (string, optional): The unsigned buying PSBT in base64 format.
-- unsignedBuyingPSBTInputSize (number, optional): The input size of the unsigned buying PSBT.
-- signedBuyingPSBTBase64 (string, optional): The signed buying PSBT in base64 format.
-- buyerDummyUTXOs (utxo[], optional): The dummy UTXOs of the buyer.
-- buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
-- mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
+    - takerFeeBp (number): The taker fee in basis points.
+    - buyerAddress (string): The address of the buyer.
+    - buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
+    - feeRateTier (string): The fee rate tier.
+    - buyerPublicKey (string, optional): The public key of the buyer.
+    - unsignedBuyingPSBTBase64 (string, optional): The unsigned buying PSBT in base64 format.
+    - unsignedBuyingPSBTInputSize (number, optional): The input size of the unsigned buying PSBT.
+    - signedBuyingPSBTBase64 (string, optional): The signed buying PSBT in base64 format.
+    - buyerDummyUTXOs (utxo[], optional): The dummy UTXOs of the buyer.
+    - buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
+    - mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
 
 **utxo (Interface)** <br>
 This interface represents a UTXO (Unspent Transaction Output).
