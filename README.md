@@ -181,9 +181,9 @@ This interface represents a UTXO (Unspent Transaction Output).
 
 **generateUnsignedListingPSBTBase64**
 
-<code>async function generateUnsignedListingPSBTBase64(
+`async function generateUnsignedListingPSBTBase64(
     listing: IListingState,
-): Promise<IListingState></code>
+): Promise<IListingState>`
 
 This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
 
@@ -193,11 +193,11 @@ The function returns a Promise that resolves to an instance of the IListingState
 
 **verifySignedListingPSBTBase64**
 
-<code>async function verifySignedListingPSBTBase64(
+`async function verifySignedListingPSBTBase64(
     req: IOrdAPIPostPSBTListing,
     feeProvider: FeeProvider,
     itemProvider: ItemProvider,
-): Promise<void></code>
+): Promise<void>`
 
 This asynchronous function verifies a signed PSBT in base64 format. It takes in the following parameters:
 
@@ -211,10 +211,10 @@ The function returns a Promise that resolves to void. If the verification fails,
 
 **selectDummyUTXOs**
 
-<code>async function selectDummyUTXOs(
+`async function selectDummyUTXOs(
     utxos: AddressTxsUtxo[],
     itemProvider: ItemProvider,
-): Promise<utxo[] | null></code>
+): Promise<utxo[] | null>`
 
 This asynchronous function selects dummy UTXOs (Unspent Transaction Outputs) from a given list of UTXOs. It takes in the following parameters:
 
@@ -224,14 +224,14 @@ This asynchronous function selects dummy UTXOs (Unspent Transaction Outputs) fro
 
 **selectPaymentUTXOs**
 
-<code>async function selectPaymentUTXOs(
+`async function selectPaymentUTXOs(
     utxos: AddressTxsUtxo[],
     amount: number, // amount is expected total output (except tx fee)
     vinsLength: number,
     voutsLength: number,
     feeRateTier: string,
     itemProvider: ItemProvider,
-)</code>
+)`
 
 This asynchronous function selects payment UTXOs from a given list of UTXOs. It takes in the following parameters:
 
@@ -246,9 +246,9 @@ The function returns a Promise that resolves to an array of utxo objects. The re
 
 **generateUnsignedBuyingPSBTBase64**
 
-<code>async function generateUnsignedBuyingPSBTBase64(
+`async function generateUnsignedBuyingPSBTBase64(
     listing: IListingState,
-): Promise<IListingState></code>
+): Promise<IListingState>`
 
 This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
 
@@ -257,10 +257,10 @@ This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin 
 
 **mergeSignedBuyingPSBTBase64**
 
-<code>function mergeSignedBuyingPSBTBase64(
+`function mergeSignedBuyingPSBTBase64(
     signedListingPSBTBase64: string,
     signedBuyingPSBTBase64: string,
-): string</code>
+): string`
 
 This function merges a signed listing PSBT and a signed buying PSBT, both in base64 format. It takes in the following parameters:
 
@@ -271,13 +271,13 @@ The function returns a string representing the merged PSBT in base64 format.
 
 **verifySignedBuyingPSBTBase64**
 
-<code>async function verifySignedBuyingPSBTBase64(
+`async function verifySignedBuyingPSBTBase64(
     req: IOrdAPIPostPSBTBuying,
     feeProvider: FeeProvider,
     itemProvider: ItemProvider,
 ): Promise<{
     newOutputOffset: number;
-}></code>
+}>`
 
 This asynchronous function verifies a signed buying PSBT in base64 format. It takes in the following parameters:
 
@@ -289,13 +289,13 @@ The function returns a Promise that resolves to an object containing a newOutput
 
 **generateUnsignedCreateDummyUtxoPSBTBase64**
 
-<code>async function generateUnsignedCreateDummyUtxoPSBTBase64(
+`async function generateUnsignedCreateDummyUtxoPSBTBase64(
     address: string,
     buyerPublicKey: string | undefined,
     unqualifiedUtxos: AddressTxsUtxo[],
     feeRateTier: string,
     itemProvider: ItemProvider,
-): Promise<string></code>
+): Promise<string>`
 
 This asynchronous function generates an unsigned PSBT in base64 format for creating a dummy UTXO. It takes in the following parameters:
 
