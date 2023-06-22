@@ -181,9 +181,9 @@ This interface represents a UTXO (Unspent Transaction Output).
 
 **generateUnsignedListingPSBTBase64**
 
-> async function generateUnsignedListingPSBTBase64(
->     listing: IListingState,
-> ): Promise<IListingState>
+`async function generateUnsignedListingPSBTBase64(
+    listing: IListingState,
+): Promise<IListingState>`
 
 This asynchronous function generates an unsigned PSBT (Partially Signed Bitcoin Transaction) in base64 format for a given listing. It takes in the following parameter:
 
