@@ -226,7 +226,7 @@ This asynchronous function selects dummy UTXOs (Unspent Transaction Outputs) fro
 
 `async function selectPaymentUTXOs(
     utxos: AddressTxsUtxo[],
-    amount: number, // amount is expected total output (except tx fee)
+    amount: number,
     vinsLength: number,
     voutsLength: number,
     feeRateTier: string,
