@@ -52,35 +52,31 @@ Apache 2.0
 
 ## Interfaces
 
-**InvalidArgumentError (Class)**
-
+**InvalidArgumentError (Class)** <br>
 This class extends the built-in Error class in JavaScript. It's used to throw an error when an invalid argument is passed to a function.
 
-**WitnessUtxo (Interface)**
-
+**WitnessUtxo (Interface)** <br>
 This interface represents a Witness UTXO (Unspent Transaction Output).
 
 script (Buffer): Represents the script of the UTXO.
 
 value (number): Represents the value of the UTXO.
 
-**FeeProvider (Interface)**
-
+**FeeProvider (Interface)** <br>
 This interface represents a fee provider.
 
 getMakerFeeBp(maker: string) (Method): Returns a Promise that resolves to a number representing the maker fee in basis points.
 
 getTakerFeeBp(taker: string) (Method): Returns a Promise that resolves to a number representing the taker fee in basis points.
 
-**ItemProvider (Interface)**
-
+**ItemProvider (Interface)** <br>
 This interface represents an item provider.
 
 getTokenByOutput(output: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
 
 getTokenById(tokenId: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
 
-**IOrdItem (Interface)**
+**IOrdItem (Interface)** <br>
 This interface represents an Ord item.
 
 id (string): The unique identifier of the item.
@@ -109,7 +105,7 @@ listedPrice (number, optional): The price of the item when it was listed.
 listedMakerFeeBp (number, optional): The maker fee in basis points when the item was listed.
 listedSellerReceiveAddress (string, optional): The address where the seller will receive the payment.
 
-**IOrdItemMeta (Interface)**
+**IOrdItemMeta (Interface)** <br>
 This interface represents the metadata of an Ord item.
 
 name (string): The name of the item.
@@ -118,7 +114,7 @@ status (string, optional): The status of the item.
 rank (number, optional): The rank of the item.
 attributes (IOrdItemAttribute[], optional): The attributes of the item.
 
-**IOrdItemAttribute (Interface)**
+**IOrdItemAttribute (Interface)** <br>
 This interface represents an attribute of an Ord item.
 
 trait_type (string): The type of the trait.
@@ -126,7 +122,7 @@ value (string): The value of the trait.
 status (string, optional): The status of the trait.
 percent (string, optional): The percentage of the trait.
 
-**IOrdAPIPostPSBTBuying (Interface)**
+**IOrdAPIPostPSBTBuying (Interface)** <br>
 This interface represents a request to post a PSBT buying.
 
 price (number): The price of the item.
@@ -135,7 +131,7 @@ buyerAddress (string): The address of the buyer.
 buyerTokenReceiveAddress (string): The address where the buyer will receive the token.
 signedBuyingPSBTBase64 (string): The signed buying PSBT in base64 format.
 
-**IOrdAPIPostPSBTListing (Interface)**
+**IOrdAPIPostPSBTListing (Interface)** <br>
 This interface represents a request to post a PSBT listing.
 
 price (number): The price of the item.
@@ -144,7 +140,7 @@ sellerReceiveAddress (string): The address where the seller will receive the pay
 signedListingPSBTBase64 (string): The signed listing PSBT in base64 format.
 tapInternalKey (string, optional): The tap internal key.
 
-**IListingState (Interface)**
+**IListingState (Interface)** <br>
 This interface represents the state of a listing.
 
 seller (Object): Contains information about the seller.
@@ -169,7 +165,7 @@ buyerDummyUTXOs (utxo[], optional): The dummy UTXOs of the buyer.
 buyerPaymentUTXOs (utxo[], optional): The payment UTXOs of the buyer.
 mergedSignedBuyingPSBTBase64 (string, optional): The merged and signed buying PSBT in base64 format.
 
-**utxo (Interface)**
+**utxo (Interface)** <br>
 This interface represents a UTXO (Unspent Transaction Output).
 
 txid (string): The transaction ID of the UTXO.
