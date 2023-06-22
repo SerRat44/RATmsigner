@@ -47,31 +47,37 @@ To develop msigner, simply clone the repository and follow these steps:
 Apache 2.0
 
 
-
-## Docs for stupid mfs
+# Docs for stupid mfs
 
 
 ## Interfaces
 
 **InvalidArgumentError (Class)**
+
 This class extends the built-in Error class in JavaScript. It's used to throw an error when an invalid argument is passed to a function.
 
 **WitnessUtxo (Interface)**
+
 This interface represents a Witness UTXO (Unspent Transaction Output).
 
 script (Buffer): Represents the script of the UTXO.
+
 value (number): Represents the value of the UTXO.
 
 **FeeProvider (Interface)**
+
 This interface represents a fee provider.
 
 getMakerFeeBp(maker: string) (Method): Returns a Promise that resolves to a number representing the maker fee in basis points.
+
 getTakerFeeBp(taker: string) (Method): Returns a Promise that resolves to a number representing the taker fee in basis points.
 
 **ItemProvider (Interface)**
+
 This interface represents an item provider.
 
 getTokenByOutput(output: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
+
 getTokenById(tokenId: string) (Method): Returns a Promise that resolves to an IOrdItem or null.
 
 **IOrdItem (Interface)**
