@@ -71,6 +71,7 @@ This interface represents an item provider.
 **IOrdItem (Interface)**  
 This interface represents an Ord item.
 
+
 - **id (string)**: The unique identifier of the item.
 - **contentURI (string)**: The URI where the content of the item can be found.
 - **contentType (string)**: The type of the content (e.g., image, video, etc.).
@@ -85,6 +86,7 @@ This interface represents an Ord item.
 - **chain (string)**: The blockchain where the item exists.
 - **owner (string)**: The owner of the item.
 
+
 - **location (string)**: The location of the item on the blockchain.
 - **locationBlockHeight (number, optional)**: The block height of the item's location.
 - **locationBlocktime (string, optional)**: The block time of the item's location.
@@ -92,6 +94,7 @@ This interface represents an Ord item.
 - **outputValue (number)**: The output value of the item.
 - **output (string)**: The output of the item.
 - **mempoolTxId (string, optional)**: The transaction ID of the item in the mempool.
+
 
 - **listed (boolean)**: Whether the item is listed for sale or not.
 - **listedAt (string, optional)**: The time when the item was listed.
